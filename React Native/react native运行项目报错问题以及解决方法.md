@@ -134,3 +134,15 @@ $ pod update --no-repo-update --verbose
 这样就解决了工程依赖的第三方库版本过低需要更新的问题。
 
 但是我们在clone github镜像源的时候，发现速度还是比较慢的，这是因为国内访问github的速度不给力，这个时候可以考虑挂一个VPN或者使用国内一些网站提供的镜像源。
+
+## 克隆项目时报错： error This module isn't specified in a package.json file.
+
+## 问题原因以及解答：
+
+一、如果刚开始运行，环境没配置，需要依赖的版本迭代一下即可
+
+1. 先卸载：npm uninstall -g react-native-cli
+2. npm install -g yarn react-native-cli
+3. 升级react-native：npm install --save react-native@0.62.2
+
+二、之前迭代过，重新克隆项目后报错。是因为自己把依赖环境删除了。‘package-lock.json’文件和‘node_modules’文件夹删除等于以来的环境也木有了。这时就像你没有版本迭代一样，需要重复一遍上面的步骤。
